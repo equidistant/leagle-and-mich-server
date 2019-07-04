@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "cb-trading-server-proxy",
+            "script": "npm",
+            "args" : "run run-production"
+        }
+    ]
+}
