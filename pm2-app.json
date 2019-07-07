@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "cb-trading-server-proxy",
+            "name": "leagle-and-mich-server",
             "script": "npm",
             "args" : "run run-production"
         }

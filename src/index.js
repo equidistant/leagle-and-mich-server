@@ -8,6 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = express()
 
-app.use('/image', express.static(path.join(__dirname, 'public')))
+app.use('/images/slideshow', express.static(path.join(__dirname, 'public/slideshow')))
+app.use('/images/travels', express.static(path.join(__dirname, 'public/travels')))
 
 app.listen(process.env.PORT, () => console.log(`HTTP server running on port ${process.env.PORT}`))
