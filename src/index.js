@@ -1,6 +1,8 @@
 import express from 'express'
+import compression from 'compression'
 import path from 'path'
 import dotenv from 'dotenv'
+import imageSize from './image-size'
 
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config()
@@ -8,7 +10,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = express()
 
-app.use('/images/slideshow', express.static(path.join(__dirname, 'public/slideshow')))
-app.use('/images/travels', express.static(path.join(__dirname, 'public/travels')))
+app.use(compression())
+app.use('/sizes', imageSize)
+app.use('/images', express.static(path.join(__dirname, 'public')))
 
 app.listen(process.env.PORT, () => console.log(`HTTP server running on port ${process.env.PORT}`))
