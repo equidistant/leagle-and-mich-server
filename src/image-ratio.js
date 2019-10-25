@@ -11,13 +11,13 @@ const router = express.Router()
 router.get('/:folderName', async (req, res, next) => {
   const galleryPath = path.join(__dirname, `public/${req.params.folderName}`)
   const images = await readDir(galleryPath)
-  const sizes = []
+  const ratios = []
   for (let i = 0; i < images.length; i++) {
     const { width, height } = await sizeOf(`${galleryPath}/img${i}.jpg`)
-    sizes.push({ width, height })
+    ratios.push(width / height)
   }
   res.setHeader('Access-Control-Allow-Origin', '*')
-  return res.status(200).send(sizes)
+  return res.status(200).send(ratios)
 })
 
 export default router
